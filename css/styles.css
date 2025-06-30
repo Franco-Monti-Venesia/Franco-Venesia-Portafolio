@@ -273,14 +273,15 @@ body.light .menu-toggle span {
 .mobile-links a {
   color: #fff;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   position: relative;
+  text-transform: uppercase;
 }
 
 .mobile-links a::after {
   content: '';
   display: block;
-  height: 2px;
+  height: 4px;
   background-color: transparent;
   width: 0%;
   position: absolute;
@@ -387,6 +388,7 @@ body.light .icon img {
 
   .header.container {
     padding: 2rem 1.5rem;
+    position: fixed;
   }
 
   .theme-toggle-mobile {
@@ -394,7 +396,7 @@ body.light .icon img {
   align-items: center;
   cursor: pointer;
   background-color: var(--nav-dark);
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.8rem;
   border-radius: 25px;
   transition: background 0.3s ease;
 }
@@ -435,4 +437,45 @@ body.light .icon img {
 .hover-fill img {
   position: relative;
   z-index: 1;
+}
+
+/* Aplicar blur solo a logo, nav-links, theme-toggle y el botón menú */
+.logo,
+.nav-links,
+.theme-toggle,
+.menu-toggle {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Mantener el fondo oscuro sin importar el theme */
+.mobile-menu {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Íconos de GitHub/LinkedIn siempre con filtro invertido */
+.mobile-menu .social-icons .icon img {
+  filter: invert(1) !important;
+}
+
+.mobile-menu .social-icons .icon {
+  border: 1px solid #fff !important;
+}
+
+.logo,
+.menu-toggle {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: var(--nav-dark); /* mantiene coherencia visual */
+  border-radius: 25px;
+  padding: 0.7rem 0.6rem; /* opcional: ajusta tamaño */
+}
+
+.menu-toggle {
+  padding: 1rem 0.8rem;
+}
+
+body.light .logo,
+body.light .menu-toggle {
+  background-color: var(--nav-light);
 }
