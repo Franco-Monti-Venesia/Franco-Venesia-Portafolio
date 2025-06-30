@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Franco Venesia</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    
+  <header class="header container">
+    <div class="logo">
+      <span class="angle">&lt;</span><span class="name">FrancoVenesia</span><span class="angle">/&gt;</span>
+    </div>
+
+    <!-- Navegación Desktop -->
+    <nav class="nav-desktop">
+      <ul class="nav-links">
+        <li><span class="dot">•</span> <a href="#about">Sobre mí</a></li>
+        <li><span class="dot">•</span> <a href="#projects">Proyectos</a></li>
+        <li><span class="dot">•</span> <a href="#skills">Habilidades</a></li>
+        <li><span class="dot">•</span> <a href="#certificates">Certificados</a></li>
+        <li><span class="dot">•</span> <a href="#contact">Contacto</a></li>
+        <li><span class="dot">•</span></li>
+      </ul>
+    </nav>
+
+    <!-- Toggle modo oscuro para desktop -->
+    <div class="theme-toggle desktop-toggle">
+      <img src="assets/moon.svg" alt="Dark mode" class="icon-theme" />
+      <label class="switch">
+        <input type="checkbox" id="mode-toggle" />
+        <span class="slider"></span>
+      </label>
+      <img src="assets/sun.svg" alt="Light mode" class="icon-theme" />
+    </div>
+
+    <!-- Toggle modo oscuro para mobile -->
+    <div class="theme-toggle-mobile" id="theme-toggle-mobile">
+      <img src="assets/moon.svg" alt="Toggle theme" id="mobile-theme-icon" />
+    </div>
+
+    <!-- Botón menú hamburguesa -->
+    <div class="menu-toggle" id="open-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Menú Mobile -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-header">
+      <div class="logo">
+        <span class="angle">&lt;</span><span class="name">FrancoVenesia</span><span class="angle">/&gt;</span>
+      </div>
+      <div class="close-btn" id="close-menu">✕</div>
+    </div>
+
+    <ul class="mobile-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#certificates">Certificados</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+
+    <div class="mobile-footer">
+      <p>Donde encontrarme</p>
+      <div class="social-icons">
+        <a href="#" class="icon hover-fill"><img src="assets/github.svg" alt="GitHub" /></a>
+        <a href="#" class="icon hover-fill"><img src="assets/linkedin.svg" alt="LinkedIn" /></a>
+      </div>
+      <p>Ubicado en Rosario, Argentina.</p>
+      <p>francovenesia05@gmail.com</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
