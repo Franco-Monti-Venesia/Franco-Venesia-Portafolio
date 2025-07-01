@@ -24,17 +24,25 @@ modeToggle.addEventListener("change", () => {
 mobileThemeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
-  mobileThemeIcon.src = isLight ? "assets/sun.svg" : "assets/moon.svg";
+
+  mobileThemeIcon.src = isLight ? "assets/icons/sun.svg" : "assets/icons/moon.svg";
   localStorage.setItem("theme", isLight ? "light" : "dark");
+
+  // 🟣 SINCRONIZAR TOGGLE DESKTOP
+  const modeToggle = document.getElementById("mode-toggle");
+  if (modeToggle) {
+    modeToggle.checked = isLight;
+  }
 });
+
 
 // Set icono correcto al cargar
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "light") {
     document.body.classList.add("light");
-    mobileThemeIcon.src = "assets/sun.svg";
+    mobileThemeIcon.src = "assets/icons/sun.svg";
   } else {
-    mobileThemeIcon.src = "assets/moon.svg";
+    mobileThemeIcon.src = "assets/icons/moon.svg";
   }
 });
 
