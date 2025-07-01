@@ -15,6 +15,11 @@
   box-sizing: border-box;
 }
 
+main {
+  margin-top: 100px; /* o ajustá según el tamaño real */
+}
+
+
 html, body {
   overflow-x: hidden;
   width: 100%;
@@ -49,8 +54,16 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
+
 
 .nav-desktop {
   display: none;
@@ -203,14 +216,14 @@ body.light .icon-theme {
   position: relative;
   background-color: var(--nav-dark);
   border-radius: 25px;
-  padding: 0.7rem 0.6rem;
+  padding: 0.6rem 0.6rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background 0.3s ease;
 }
 
 .menu-toggle {
-  padding: 1rem 0.8rem;
+  padding: 0.85rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -223,6 +236,15 @@ body.light .icon-theme {
   background-color: #fff;
   border-radius: 5px;
 }
+
+.logo,
+.menu-toggle,
+.theme-toggle,
+.nav-links {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 
 body.light .logo,
 body.light .menu-toggle {
@@ -361,14 +383,13 @@ body.light .menu-toggle span {
   }
 
   .theme-toggle-mobile {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     background-color: var(--nav-dark);
-    padding: 0.8rem 0.8rem;
     border-radius: 25px;
+    padding: 0.6rem 0.8rem;
     transition: background 0.3s ease;
-  }
+}
 
   body.light .theme-toggle-mobile {
     background-color: var(--nav-light);
