@@ -769,7 +769,7 @@ body:not(.light) .hero-illustration {
   }
 
   .about-section {
-    padding: 4rem 1.5rem; /* Asegurar padding en móvil también */
+    padding: 0 1.5rem;
   }
 
   .about-photo-wrapper {
