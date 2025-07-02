@@ -1,7 +1,7 @@
 :root {
   --accent: #7f00ff;
-  --bg-dark: #111;
-  --bg-light: #fff;
+  --bg-dark: #0e0015;
+  --bg-light: #f0eef1;
   --text-dark: #fff;
   --text-light: #111;
   --nav-dark: rgba(255, 255, 255, 0.05);
@@ -216,14 +216,14 @@ body.light .icon-theme {
   position: relative;
   background-color: var(--nav-dark);
   border-radius: 25px;
-  padding: 0.6rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background 0.3s ease;
 }
 
 .menu-toggle {
-  padding: 0.85rem 0.8rem;
+  padding: 0.95rem 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -335,7 +335,7 @@ body.light .menu-toggle span {
 
 .mobile-footer p {
   margin: 0.6rem 0;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #fff;
 }
 
@@ -347,27 +347,32 @@ body.light .menu-toggle span {
 }
 
 .icon {
-  border: 1px solid #fff !important;
+  border: 1px solid currentColor;
   padding: 0.5rem 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  transition: background 0.3s ease, transform 0.3s ease;
-  height: 36px;
-  width: 36px;
+  transition: background 0.3s ease, transform 0.3s ease, border 0.3s ease;
+  height: 56px;
+  width: 56px;
+  color: var(--text-dark); /* para modo oscuro */
 }
+
+body.light .icon {
+  color: var(--text-light); /* para modo claro */
+  border-color: var(--text-light);
+}
+
 
 .icon:hover {
   background: var(--accent);
   transform: translateY(-3px);
 }
 
-.icon img {
-  width: 18px;
-  height: 18px;
+/* Íconos de redes en el menú MOBILE (siempre blancos) */
+.mobile-menu .icon img {
   filter: invert(1) !important;
-  transition: filter 0.3s ease;
 }
 
 /* MOBILE MEDIA QUERIES */
@@ -387,7 +392,7 @@ body.light .menu-toggle span {
     -webkit-backdrop-filter: blur(8px);
     background-color: var(--nav-dark);
     border-radius: 25px;
-    padding: 0.6rem 0.8rem;
+    padding: 0.7rem 0.8rem 0.6rem;
     transition: background 0.3s ease;
 }
 
@@ -408,6 +413,7 @@ body.light .menu-toggle span {
 
   .logo {
     font-size: 1.35rem;
+    padding: 0.7rem 0.8rem;
   }
 
   .header.container {
@@ -523,3 +529,162 @@ body.light .menu-toggle span {
 .logo-menu .name {
   color: inherit;
 }
+
+/* ÍCONOS DE REDES SOCIALES - ESTILOS SEPARADOS SEGÚN CONTEXTO */
+
+/* Íconos sociales dentro del HERO (modo dinámico) */
+.hero-social .icon img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+body.light .hero-social .icon img {
+  filter: invert(0);
+}
+
+/* Íconos dentro del MENÚ MOBILE (siempre blancos) */
+.mobile-menu .icon img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1) !important;
+  transition: filter 0.3s ease;
+}
+
+
+/* === Sección Hero === */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height, 120px));
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.hero-content {
+  flex: 1 1 350px;
+  max-width: 600px;
+}
+
+.hero-image {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título animado con línea */
+.hero-title .underlined {
+  position: relative;
+  display: inline-block;
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: inherit;
+  overflow: hidden;
+}
+
+.hero-title .underlined::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: var(--accent);
+  animation: slide-line 3s linear infinite;
+}
+
+@keyframes slide-line {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
+}
+
+.hero-subtitle {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem 0.7rem;
+  border-radius: 25px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.btn.alt {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn:hover {
+  background: #5e00c0;
+}
+
+.btn.alt:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hero-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-social .icon {
+  border: 3px solid currentColor;
+  background: transparent;
+}
+
+.hero-social .icon img {
+  filter: invert(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.82rem;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-image {
+    margin-top: 2rem;
+  }
+  .hero-title .underlined {
+    font-size: 3rem;
+  }
+  .hero-content,
+  .hero-buttons,
+  .hero-subtitle,
+  .hero-social {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100%;
+  }
+}
+
