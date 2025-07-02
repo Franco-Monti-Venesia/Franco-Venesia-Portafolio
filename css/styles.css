@@ -805,3 +805,159 @@ body.light .section-title::after {
   }
 }
 
+/* === Mis Proyectos === */
+
+.projects-section {
+  margin-top: 6rem;
+  padding: 4rem 1.5rem;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.project-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  border-radius: 16px;
+}
+
+.project-img-wrapper:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(127, 0, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.project-img-wrapper:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-icon {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-icon:hover {
+  transform: scale(1.1);
+  background-color: var(--accent);
+}
+
+.project-icon img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* Carta visual del proyecto */
+.project-content-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: left;
+}
+
+body.light .project-content-card {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.project-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.project-tools {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.project-tools li {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+}
+
+/* Título con línea debajo que cambia según el modo */
+.section-title.with-line {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.section-title.with-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: currentColor;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .project-content-card {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+}
