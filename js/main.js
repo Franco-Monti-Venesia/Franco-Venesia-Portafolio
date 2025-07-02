@@ -9,6 +9,20 @@ const mobileThemeIcon = document.getElementById("mobile-theme-icon");
 openMenu.onclick = () => mobileMenu.classList.add("active");
 closeMenu.onclick = () => mobileMenu.classList.remove("active");
 
+// Cerrar menú mobile al hacer clic en cualquier link del menú
+document.querySelectorAll(".mobile-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+  });
+});
+
+// Cerrar menú mobile al hacer clic en el logo (versión mobile)
+document.querySelectorAll(".logo, .logo-menu").forEach(logo => {
+  logo.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+  });
+});
+
 // Modo claro/oscuro en desktop
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
@@ -35,7 +49,6 @@ mobileThemeToggle.addEventListener("click", () => {
   }
 });
 
-
 // Set icono correcto al cargar
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("theme") === "light") {
@@ -45,5 +58,3 @@ window.addEventListener("DOMContentLoaded", () => {
     mobileThemeIcon.src = "assets/icons/moon.svg";
   }
 });
-
-document.body.classList.toggle("menu-open", menuAbierto);
