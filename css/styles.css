@@ -725,7 +725,7 @@ body:not(.light) .hero-illustration {
   content: "";
   position: absolute;
   bottom: -30px;
-  left: -40;
+  left: -40px;
   width: 240px;
   height: 240px;
   background-color: var(--accent);
@@ -778,13 +778,6 @@ body:not(.light) .hero-illustration {
     -webkit-shape-outside: none;
     clip-path: none;
     margin: 0 0 2rem 0;
-  }
-
-  .circle-bg {
-    bottom: -30px;
-    left: -40px;
-    width: 200px;
-    height: 200px;
   }
 
   .about-text {
