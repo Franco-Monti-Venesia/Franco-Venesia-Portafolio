@@ -985,15 +985,7 @@ body.light .project-content-card {
   }
 
   .project-description {
-    font-size: 0.95rem;
-  }
-}
-
-@media (min-width: 769px) {
-  .project-section .section-title {
-    display: block;
-    text-align: center;
-    margin: 0 auto 2rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -1073,4 +1065,180 @@ body.light .project-section .section-title {
 
 body:not(.light) .project-section .section-title {
   color: var(--text-dark);
+}
+
+@media (min-width: 769px) {
+  /* Centrar horizontalmente el título en desktop */
+  #projects .section-title {
+    margin: 0 auto 2rem; /* centra e iguala el margin inferior */
+    text-align: center;
+  }
+}
+
+/* 🔧 CONTENEDOR RELATIVO PARA PROYECTOS */
+.project-card {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+/* Imagen relativa */
+.project-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* La imagen principal */
+.project-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Capa superpuesta por defecto */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Al hacer hover sobre el wrapper, hacemos transparente la capa */
+.project-img-wrapper:hover .overlay {
+  opacity: 0;
+}
+
+/* 📦 Cartel de contenido */
+.project-content-card {
+  position: absolute;
+  bottom: -200px;             /* superpuesto sobre la imagen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  z-index: 2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Opcional: que suba un poco al hacer hover (PREVIEW) */
+.project-card:hover .project-content-card {
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* 🧩 PROJECT-LINKS iconos: igual que .hero-social .icon */
+.project-links .icon {
+  border: 3px solid currentColor;
+  padding: .5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-links .icon img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+body.light .project-links .icon img {
+  filter: invert(0);
+}
+
+/* Espaciado interno */
+.project-content-card .project-title {
+  margin-top: 0;
+  margin-bottom: .8rem;
+}
+.project-tools {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0;
+}
+.project-tools li {
+  padding: .4rem .8rem;
+  border-radius: 5px;
+  font-size: .85rem;
+}
+
+/* 📱 Responsive: mobile muestra `.project-content-card` debajo */
+@media (max-width: 768px) {
+  .project-content-card {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: -1.5rem;
+  }
+}
+
+/* === Estilos actualizados para .project-content-card === */
+
+/* Ajustes generales (sin cambiar posición original ni herramientas) */
+.project-content-card {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Versión LIGHT (body.light activo):
+   - Fondo NEGRO
+   - Texto BLANCO
+   - Íconos y bordes en blanco (hover mantiene el acento) */
+body.light .project-content-card {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.light .project-content-card .project-title,
+body.light .project-content-card .project-description {
+  color: #fff;
+}
+
+body.light .project-content-card .project-links .icon {
+  border-color: #fff;
+}
+body.light .project-content-card .project-links .icon img {
+  filter: brightness(0) invert(1);
+}
+body.light .project-content-card .project-links .icon:hover {
+  background-color: var(--accent);
+}
+
+/* Herramientas mantienen color de acento */
+body.light .project-content-card .project-tools li {
+  border: none;
+}
+
+/* Versión DARK (body.dark o sin .light):
+   - Fondo BLANCO
+   - Texto NEGRO
+   - Íconos y bordes en negro (hover mantiene el acento) */
+body:not(.light) .project-content-card {
+  background-color: #fff !important;
+  color: var(--text-dark) !important;
+}
+
+body:not(.light) .project-content-card .project-title,
+body:not(.light) .project-content-card .project-description {
+  color: var(--text-light);
+}
+
+body:not(.light) .project-content-card .project-links .icon {
+  border-color: var(--text-light);
+}
+body:not(.light) .project-content-card .project-links .icon img {
+  filter: none;
+}
+body:not(.light) .project-content-card .project-links .icon:hover {
+  background-color: var(--accent);
+}
+
+/* Herramientas mantienen color acento igual que en light */
+body:not(.light) .project-content-card .project-tools li {
+  border: none;
 }
