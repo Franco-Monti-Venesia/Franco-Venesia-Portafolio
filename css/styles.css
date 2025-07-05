@@ -1041,3 +1041,36 @@ body.light .project-links .icon img {
   background: var(--accent);
   transform: translateY(-3px);
 }
+
+/* — Centrado y estilo del título de proyectos — */
+.project-section {
+  text-align: center;
+}
+
+.project-section .section-title {
+  display: inline-block;
+  position: relative;
+  font-size: 2rem;
+  margin: 0 auto 2rem;
+  color: inherit; /* hereda texto según tema */
+}
+
+/* Línea debajo del título */
+.project-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+}
+
+/* Asegurar que "currentColor" se adapte segun tema */
+body.light .project-section .section-title {
+  color: var(--text-light);
+}
+
+body:not(.light) .project-section .section-title {
+  color: var(--text-dark);
+}
