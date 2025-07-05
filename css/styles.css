@@ -755,7 +755,7 @@ body:not(.light) .hero-illustration {
   max-width: 600px;
 }
 
-.section-title {
+.section-title, .section-title-projects {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: var(--accent);
@@ -772,7 +772,16 @@ body:not(.light) .hero-illustration {
   margin-top: 5px;
 }
 
-body.light .section-title::after {
+.section-title-projects::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 43%;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+body.light .section-title::after, body.ligth .section-title-projects::after {
   background-color: #111;
 }
 
@@ -936,6 +945,12 @@ body.light .project-content-card {
   margin-bottom: 3rem;
 }
 
+.section-title-projects.with-line {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
 .section-title.with-line::after {
   content: '';
   position: absolute;
@@ -947,6 +962,18 @@ body.light .project-content-card {
   opacity: 1;
   transition: background-color 0.3s ease;
 }
+
+.section-title-projects.with-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: currentColor;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+} 
 
 @media (max-width: 768px) {
   .project-content-card {
@@ -960,4 +987,57 @@ body.light .project-content-card {
   .project-description {
     font-size: 0.95rem;
   }
+}
+
+@media (min-width: 769px) {
+  .project-section .section-title {
+    display: block;
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
+}
+
+.project-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img-wrapper .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.project-img-wrapper:hover .overlay {
+  opacity: 0;
+}
+
+.project-links .icon {
+  border: 1px solid currentColor;
+  padding: 0.5rem;
+  height: 36px;
+  width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project-links .icon img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+body.light .project-links .icon img {
+  filter: invert(0);
+}
+
+.project-links .icon:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
 }
