@@ -21,6 +21,10 @@ main {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
 }
 
 html, body {
@@ -34,6 +38,13 @@ html, body {
 body {
   background-color: var(--bg-dark);
   color: var(--text-dark);
+  overflow: visible !important;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body.light {
@@ -1008,7 +1019,7 @@ body.light .project-content-card {
 
 .project-links .icon {
   border: 1px solid currentColor;
-  padding: 0.5rem;
+  padding: 1.2rem;
   height: 36px;
   width: 36px;
   display: inline-flex;
@@ -1078,7 +1089,7 @@ body:not(.light) .project-section .section-title {
 /* 🔧 CONTENEDOR RELATIVO PARA PROYECTOS */
 .project-card {
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 }
 
 /* Imagen relativa */
@@ -1135,7 +1146,6 @@ body:not(.light) .project-section .section-title {
 /* 🧩 PROJECT-LINKS iconos: igual que .hero-social .icon */
 .project-links .icon {
   border: 3px solid currentColor;
-  padding: .5rem;
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease;
 }
