@@ -778,8 +778,8 @@ body:not(.light) .hero-illustration {
 .section-title::after {
   content: '';
   display: block;
-  height: 3px;
-  width: 33%;
+  height: 4px;
+  width: 35%;
   background-color: #fff;
   margin-top: 5px;
 }
@@ -822,6 +822,11 @@ body.light .section-title::after, body.ligth .section-title-projects::after {
 
   .about-text {
     width: 100%;
+    text-align: center;
+  }
+
+  .about-text p {
+    width: 100%;
     text-align: left;
   }
 }
@@ -831,6 +836,7 @@ body.light .section-title::after, body.ligth .section-title-projects::after {
 .projects-section {
   margin-top: 6rem;
   padding: 4rem 1.5rem;
+  text-align: center;
 }
 
 .projects-grid {
@@ -996,6 +1002,10 @@ body.light .project-content-card {
 
   .project-description {
     font-size: 0.8rem;
+  }
+
+  .project-card {
+    margin-bottom: 0 !important;
   }
 }
 
@@ -1188,10 +1198,7 @@ body.light .project-links .icon img {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Versión LIGHT (body.light activo):
-   - Fondo NEGRO
-   - Texto BLANCO
-   - Íconos y bordes en blanco (hover mantiene el acento) */
+/* Versión LIGHT (body.light activo) */
 body.light .project-content-card {
   background-color: #000 !important;
   color: #fff !important;
@@ -1244,4 +1251,55 @@ body:not(.light) .project-content-card .project-links .icon:hover {
 /* Herramientas mantienen color acento igual que en light */
 body:not(.light) .project-content-card .project-tools li {
   border: none;
+}
+
+/* Sección Habilidades */
+
+.skills-section {
+  text-align: center;
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+  max-width: 800px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skills-grid img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
+}
+
+body:not(.light) .skills-grid img {
+  box-shadow: 20px 20px 20px #00000005;
+  background-color: #573c69;
+}
+
+body:not(.dark) .skills-grid img {
+  box-shadow: 5px 5px 20px #ffffff1f;
+}
+
+.skills-grid img:hover {
+  transform: scale(1.1);
+}
+
+.skills-icon {
+  width: 60px;
+  transition: filter 0.3s ease;
+}
+
+/* Sombra según el modo */
+body.light {
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body.dark {
+  --shadow-color: rgba(255, 255, 255, 0.25);
 }
