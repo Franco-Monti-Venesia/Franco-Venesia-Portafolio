@@ -733,7 +733,6 @@ body:not(.light) .hero-illustration {
   float: left; /* <--- Crucial para shape-outside funcionar */
   shape-outside: circle(50%);
   -webkit-shape-outside: circle(50%);
-  clip-path: circle(50%);
 }
 
 .circle-bg {
