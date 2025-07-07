@@ -119,7 +119,8 @@ a {
 
   .dot {
     color: var(--accent);
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    padding: 0.6rem 0 0.6rem 0.1rem;
   }
 
   .nav-links li a {
@@ -909,8 +910,6 @@ body.light .section-title::after, body.ligth .section-title-projects::after {
   border-radius: 16px;
   max-width: 800px;
   width: 100%;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.1);
   text-align: left;
 }
@@ -1124,7 +1123,7 @@ body:not(.light) .project-section .section-title {
 /* 📦 Cartel de contenido */
 .project-content-card {
   position: absolute;
-  bottom: -200px;             /* superpuesto sobre la imagen */
+  bottom: -200px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -1134,13 +1133,7 @@ body:not(.light) .project-section .section-title {
   border-radius: 10px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  z-index: 2;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Opcional: que suba un poco al hacer hover (PREVIEW) */
-.project-card:hover .project-content-card {
-  transform: translateX(-50%) translateY(-10px);
+  z-index: 20;
 }
 
 /* 🧩 PROJECT-LINKS iconos: igual que .hero-social .icon */
