@@ -1,9 +1,35 @@
+
 const mobileMenu = document.getElementById("mobile-menu");
 const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
 const modeToggle = document.getElementById("mode-toggle");
 const mobileThemeToggle = document.getElementById("theme-toggle-mobile");
 const mobileThemeIcon = document.getElementById("mobile-theme-icon");
+
+// --- Ignorar configuración del sistema: NO usar prefers-color-scheme ni zoom automático ---
+
+// Al cargar: forzar modo guardado en localStorage (o usar dark por defecto)
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+    if (mobileThemeIcon) mobileThemeIcon.src = "assets/icons/sun.svg";
+    if (modeToggle) modeToggle.checked = true;
+  } else {
+    document.body.classList.remove("light");
+    if (mobileThemeIcon) mobileThemeIcon.src = "assets/icons/moon.svg";
+    if (modeToggle) modeToggle.checked = false;
+  }
+});
+
+// Evitar zoom del sistema en móviles (Android/Samsung, etc)
+const metaTag = document.querySelector("meta[name=viewport]");
+if (metaTag) {
+  metaTag.setAttribute(
+    "content",
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  );
+}
 
 // Abrir/cerrar menú hamburguesa
 openMenu.onclick = () => mobileMenu.classList.add("active");
@@ -24,14 +50,10 @@ document.querySelectorAll(".logo, .logo-menu").forEach(logo => {
 });
 
 // Modo claro/oscuro en desktop
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light");
-  modeToggle.checked = true;
-}
-
 modeToggle.addEventListener("change", () => {
   document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
 });
 
 // Modo claro/oscuro en mobile
@@ -42,19 +64,8 @@ mobileThemeToggle.addEventListener("click", () => {
   mobileThemeIcon.src = isLight ? "assets/icons/sun.svg" : "assets/icons/moon.svg";
   localStorage.setItem("theme", isLight ? "light" : "dark");
 
-  // 🟣 SINCRONIZAR TOGGLE DESKTOP
-  const modeToggle = document.getElementById("mode-toggle");
+  // 🟣 Sincronizar toggle desktop
   if (modeToggle) {
     modeToggle.checked = isLight;
-  }
-});
-
-// Set icono correcto al cargar
-window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light");
-    mobileThemeIcon.src = "assets/icons/sun.svg";
-  } else {
-    mobileThemeIcon.src = "assets/icons/moon.svg";
   }
 });
