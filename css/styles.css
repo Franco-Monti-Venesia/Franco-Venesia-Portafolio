@@ -1301,57 +1301,10 @@ body.dark {
   --shadow-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Sección Mis certificados */
+/* Seccion Mis certificados */
 .certificates-section {
   margin-top: 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-/* Título */
-.certificates-section {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 4rem;
-  color: var(--accent);
-}
-
-/* Contenedor visible */
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 2rem 0;
-}
-
-/* Carrusel en movimiento */
-.carousel-track {
-  display: flex;
-  gap: 3rem;
-  padding: 3rem 0 7rem;
-  animation: scroll 30s linear infinite;
-  width: max-content;
-}
-
-/* Imágenes */
-.carousel-track img {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(179, 0, 255, 0.2); /* sombra violeta */
-  transition: transform 0.3s ease;
-}
-
-.carousel-track img:hover {
-  transform: scale(1.05);
-}
-
-/* Animación scroll infinita */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
