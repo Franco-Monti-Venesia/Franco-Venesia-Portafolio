@@ -1094,7 +1094,7 @@ body:not(.light) .project-section .section-title {
   }
 }
 
-/* 🔧 CONTENEDOR RELATIVO PARA PROYECTOS */
+/* CONTENEDOR RELATIVO PARA PROYECTOS */
 .project-card {
   position: relative;
   margin-bottom: 10rem;
@@ -1129,7 +1129,7 @@ body:not(.light) .project-section .section-title {
   opacity: 0;
 }
 
-/* 📦 Cartel de contenido */
+/* Cartel de contenido */
 .project-content-card {
   position: absolute;
   bottom: -200px;
@@ -1180,7 +1180,7 @@ body.light .project-links .icon img {
   font-size: .85rem;
 }
 
-/* 📱 Responsive: mobile muestra `.project-content-card` debajo */
+/* Responsive: mobile muestra `.project-content-card` debajo */
 @media (max-width: 768px) {
   .project-content-card {
     position: static;
@@ -1248,6 +1248,7 @@ body:not(.light) .project-content-card .project-links .icon:hover {
 body:not(.light) .project-content-card .project-tools li {
   border: none;
 }
+
 
 /* Sección Habilidades */
 
