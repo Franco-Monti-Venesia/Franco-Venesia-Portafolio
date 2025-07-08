@@ -1299,3 +1299,74 @@ body.light {
 body.dark {
   --shadow-color: rgba(255, 255, 255, 0.25);
 }
+
+/* Seccion Mis certificados */
+.certificates-section {
+  margin-top: 8rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.carousel-item {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: #fff;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: #7f00ff;
+}
+
+.carousel-btn.prev {
+  left: 1rem;
+}
+
+.carousel-btn.next {
+  right: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-track {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .carousel-item {
+    max-width: 90%;
+  }
+}
