@@ -1300,7 +1300,7 @@ body.dark {
   --shadow-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Seccion Mis certificados */
+/* Sección Mis certificados */
 .certificates-section {
   margin-top: 8rem;
   text-align: center;
@@ -1308,65 +1308,49 @@ body.dark {
   overflow: hidden;
 }
 
-.carousel-container {
-  position: relative;
-  max-width: 100%;
+/* Título */
+.certificates-section {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  color: var(--accent);
+}
+
+/* Contenedor visible */
+.carousel-wrapper {
   overflow: hidden;
+  width: 100%;
   padding: 2rem 0;
 }
 
+/* Carrusel en movimiento */
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 2rem;
-  padding: 0 2rem;
+  gap: 3rem;
+  padding: 3rem 0 7rem;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 
-.carousel-item {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  object-fit: cover;
-  flex-shrink: 0;
-  background-color: #fff;
+/* Imágenes */
+.carousel-track img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(179, 0, 255, 0.2); /* sombra violeta */
+  transition: transform 0.3s ease;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 2;
-  border-radius: 50%;
-  transition: background 0.3s ease;
+.carousel-track img:hover {
+  transform: scale(1.05);
 }
 
-.carousel-btn:hover {
-  background: #7f00ff;
-}
-
-.carousel-btn.prev {
-  left: 1rem;
-}
-
-.carousel-btn.next {
-  right: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel-track {
-    gap: 1rem;
-    padding: 0 1rem;
+/* Animación scroll infinita */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-
-  .carousel-item {
-    max-width: 90%;
+  100% {
+    transform: translateX(-50%);
   }
 }
