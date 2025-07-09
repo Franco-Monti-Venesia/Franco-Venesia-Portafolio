@@ -8,6 +8,12 @@
   --nav-light: rgba(0, 0, 0, 0.05);
 }
 
+@media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
+  :root {
+    color-scheme: initial;
+  }
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -640,6 +646,7 @@ body.light .hero-social .icon img {
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-size: 0.976rem;
 }
 
 
@@ -767,7 +774,7 @@ body:not(.light) .hero-illustration {
 }
 
 .section-title, .section-title-projects {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   margin-bottom: 1.5rem;
   color: var(--accent);
   position: relative;
@@ -1353,5 +1360,33 @@ body.dark {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-photo-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-photo {
+    object-fit: cover;
+  }
+
+  .hero-title .underlined {
+    font-size: 2.45rem;
+  }
+
+  .hero-image {
+    transform: scale(0.9); /* leve reducción en pantallas muy chicas */
+  }
+
+  .skills-grid img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .carousel-track img {
+    width: 250px;
   }
 }
