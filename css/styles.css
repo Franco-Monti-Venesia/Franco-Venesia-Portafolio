@@ -1485,7 +1485,7 @@ body.dark {
   font-size: 0.85rem;
   background-color: var(--background-color);
   color: var(--text-color);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--accent);
   font-weight: 600;
   flex-direction: row;
   text-align: center;
