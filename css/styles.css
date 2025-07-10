@@ -1474,3 +1474,35 @@ body.dark {
 .btn-contact:hover {
   transform: scale(1.03);
 }
+
+/* Sección Footer */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  font-size: 0.85rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  flex-direction: row;
+  text-align: center;
+}
+
+.site-footer .footer-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.site-footer strong {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+}
