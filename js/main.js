@@ -78,48 +78,6 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   const emailInput = form.querySelector("#email");
   const messageInput = form.querySelector("#message");
 
-  const nameError = form.querySelector('label[for="name"] + input + .error-message');
-  const emailError = form.querySelector('label[for="email"] + input + .error-message');
-  const messageError = form.querySelector('label[for="message"] + textarea + .error-message');
-
-  let isValid = true;
-
-  // Ocultar mensajes de error
-  nameError.style.display = "none";
-  emailError.style.display = "none";
-  messageError.style.display = "none";
-
-  // Validaciones
-  if (nameInput.value.trim() === "") {
-    nameError.style.display = "block";
-    isValid = false;
-  }
-
-  if (emailInput.value.trim() === "") {
-    emailError.style.display = "block";
-    isValid = false;
-  }
-
-  if (messageInput.value.trim() === "") {
-    messageError.style.display = "block";
-    isValid = false;
-  }
-
-  // Si todo está bien, enviar
-  if (isValid) {
-    alert("¡Mensaje enviado con éxito!");
-    form.reset();
-  }
-});
-
-
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-
   const nameError = nameInput.nextElementSibling;
   const emailError = emailInput.nextElementSibling;
   const messageError = messageInput.nextElementSibling;
@@ -131,19 +89,25 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   emailError.style.display = "none";
   messageError.style.display = "none";
 
-  // Validar Nombre
+  // Validar nombre
   if (nameInput.value.trim() === "") {
     nameError.style.display = "block";
     isValid = false;
   }
 
-  // Validar Email
-  if (emailInput.value.trim() === "") {
+  // Validar email vacío
+  const emailValue = emailInput.value.trim();
+  if (emailValue === "") {
+    emailError.textContent = "Se requiere correo electrónico";
+    emailError.style.display = "block";
+    isValid = false;
+  } else if (!emailValue.includes("@")) {
+    emailError.textContent = "Se requiere un correo válido";
     emailError.style.display = "block";
     isValid = false;
   }
 
-  // Validar Mensaje
+  // Validar mensaje
   if (messageInput.value.trim() === "") {
     messageError.style.display = "block";
     isValid = false;
@@ -151,6 +115,7 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
 
   if (isValid) {
     alert("¡Mensaje enviado con éxito!");
-    this.reset();
+    form.reset();
   }
 });
+

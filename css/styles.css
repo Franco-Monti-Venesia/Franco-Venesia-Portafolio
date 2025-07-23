@@ -1453,11 +1453,6 @@ body.dark {
   display: none;
 }
 
-.form-group input:invalid:focus + .error-message,
-.form-group textarea:invalid:focus + .error-message {
-  display: block;
-}
-
 /* === Botón como el de la imagen === */
 .btn-contact {
   align-self: flex-end;
