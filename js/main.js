@@ -114,7 +114,14 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   }
 
   if (isValid) {
-    alert("¡Mensaje enviado con éxito!");
+    const successMessage = document.getElementById("success-message");
+    successMessage.style.display = "block";
+
+    // Ocultar luego de 5s
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 5000);
+
     form.reset();
   }
 });
