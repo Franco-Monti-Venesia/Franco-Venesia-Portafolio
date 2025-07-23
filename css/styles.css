@@ -1342,7 +1342,7 @@ body.dark {
 
 /* Imágenes */
 .carousel-track img {
-  width: 300px;
+  width: 370px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(179, 0, 255, 0.2); /* sombra violeta */
@@ -1449,6 +1449,7 @@ body.dark {
 .error-message {
   color: red;
   font-size: 0.9rem;
+  font-weight: 700;
   display: none;
 }
 
