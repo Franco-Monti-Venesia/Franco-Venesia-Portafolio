@@ -114,15 +114,30 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   }
 
   if (isValid) {
-    const successMessage = document.getElementById("success-message");
-    successMessage.style.display = "block";
+  const successMessage = document.getElementById("success-message");
 
-    // Ocultar luego de 5s
-    setTimeout(() => {
-      successMessage.style.display = "none";
-    }, 5000);
+  const templateParams = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim(),
+  };
 
-    form.reset();
+  emailjs.send('service_hmgcrwh', 'template_cm4cf5t', templateParams)
+    .then(() => {
+      successMessage.style.display = "block";
+
+      // Ocultar luego de 5s
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
+
+      form.reset();
+    })
+    .catch(error => {
+      console.error("Error al enviar email:", error); // Mostrará detalles en consola
+      alert("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
+    });
   }
+
 });
 
