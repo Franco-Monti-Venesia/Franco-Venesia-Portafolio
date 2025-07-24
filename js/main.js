@@ -70,60 +70,6 @@ mobileThemeToggle.addEventListener("click", () => {
   }
 });
 
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const form = this;
-  const nameInput = form.querySelector("#name");
-  const emailInput = form.querySelector("#email");
-  const messageInput = form.querySelector("#message");
-
-  const nameError = nameInput.nextElementSibling;
-  const emailError = emailInput.nextElementSibling;
-  const messageError = messageInput.nextElementSibling;
-
-  let isValid = true;
-
-  // Limpiar errores anteriores
-  nameError.style.display = "none";
-  emailError.style.display = "none";
-  messageError.style.display = "none";
-
-  // Validar nombre
-  if (nameInput.value.trim() === "") {
-    nameError.style.display = "block";
-    isValid = false;
-  }
-
-  // Validar email vacío
-  const emailValue = emailInput.value.trim();
-  if (emailValue === "") {
-    emailError.textContent = "Se requiere correo electrónico";
-    emailError.style.display = "block";
-    isValid = false;
-  } else if (!emailValue.includes("@")) {
-    emailError.textContent = "Se requiere un correo válido";
-    emailError.style.display = "block";
-    isValid = false;
-  }
-
-  // Validar mensaje
-  if (messageInput.value.trim() === "") {
-    messageError.style.display = "block";
-    isValid = false;
-  }
-
-  if (isValid) {
-  const successMessage = document.getElementById("success-message");
-
-  const templateParams = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    message: messageInput.value.trim(),
-  };
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
   const successMessage = document.getElementById("success-message");
@@ -140,5 +86,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 4000); // Ocultar luego de 4 segundos
       }, 500); // Mostrar levemente después de enviar
     });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const success = params.get("success");
+  const successMessage = document.getElementById("success-message");
+
+  if (success === "true" && successMessage) {
+    successMessage.style.display = "block";
+    successMessage.style.opacity = 1;
+
+    setTimeout(() => {
+      successMessage.style.opacity = 0;
+      successMessage.style.display = "none";
+    }, 4000);
   }
 });
