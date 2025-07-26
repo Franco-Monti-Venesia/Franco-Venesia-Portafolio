@@ -1313,7 +1313,6 @@ body.dark {
   margin-top: 8rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 /* Título */
@@ -1393,7 +1392,7 @@ body.dark {
 
 /* Seccion Contacto */
 .contact-section {
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 5rem;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
@@ -1536,4 +1535,24 @@ body.dark {
   .success-message {
     margin-left: 10%;
   }
+}
+
+section#about {
+  scroll-margin-top: 10rem;
+}
+
+section#projects {
+  scroll-margin-top: 2rem;
+}
+
+section#skills {
+  scroll-margin-top: 14rem;
+}
+
+section#certificates {
+  scroll-margin-top: 11rem;
+}
+
+section#contact {
+  scroll-margin-top: 6rem;
 }
